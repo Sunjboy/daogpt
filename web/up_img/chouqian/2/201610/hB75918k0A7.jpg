@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312" />
+    <title>工具箱_实用查询_实用工具_2345网址导航-2345.com</title>
+    <meta name="Keywords" content="工具箱，实用查询，实用工具"/>
+    <meta name="Description" content="2345网址导航为您提供更全更好的实用查询工具,便民服务工具以及站长工具。包括天气预报,公交查询,网速测试,万年历,手机号码归属地查询,身份证查询,IP查询,代码转换,实时汇率,在线查询尽在2345。" />
+    <meta name="mobile-agent" content="format=html5;url=http://tools.2345.com/m/" />
+    <script type="text/javascript" src="/js/m/ua.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/public_v3.css" />
+    <link type="text/css" rel="stylesheet" href="/css/index/index.css" />
+    <SCRIPT type="text/javascript" src="/js/cityList.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="/js/hiscx120806.js"></SCRIPT>
+    <script type="text/javascript">
+        var aim = 5;
+        function clearInput(id)
+        {
+            document.getElementById(id).value = '';
+        }
+        function setDate()
+        {
+            var dd = new Date();
+            // 获取AddDayCount天后的日期
+            var y = dd.getFullYear();
+            var m = dd.getMonth()+1;//获取当前月份的日期
+            var d = dd.getDate();
+            if(m < 10){
+                m = '0' + m;
+            }
+            if(d < 10){
+                d = '0' + d;
+            }
+            var dd = y+"-"+m+"-"+d;
+            document.getElementById('hideDate').value = dd;
+        }
+
+        function check_form()
+        {
+            var v = document.getElementById('post').value;
+            if(v == '' || v == '请输入梦境')
+            {
+                alert('请输入梦境');
+                return false;
+            }
+            $('#form1').submit();
+            return true;
+        }
+
+        function check_enter(event)
+        {
+            if (event.keyCode == 13)
+            {
+                return false;
+            }
+        }
+
+        function check_value()
+        {
+            var v = document.getElementById('post').value;
+            if (v == '')
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+        function chkmobile(e)
+        {
+            if(e == 'caipu')
+            {
+                var caipu = document.getElementById('caipu');
+                if(!caipu.value || caipu.value == '请输入菜谱名称')
+                {
+                    alert("请输入菜谱名称");
+                    return false;
+                }
+
+                $('#caipuFrom').submit();
+                return false;
+            }
+
+            if(e == 'sfzcx')
+            {
+                var sfzcx = document.getElementById('sfzcx');
+                if(chkCard(sfzcx.value) == false || sfzcx.value == '15位或18位号码'){
+                    alert('请输入15或18位正确的身份证号码');
+                    return false;
+                }
+                $('#sfzcxFrom').submit();
+                return false;
+            }
+            var mobile = document.getElementById('mobile');
+            if(!mobile.value || mobile.value == '请输入菜谱名称')
+            {
+                alert("请输入手机号");
+                return false;
+            }
+            var par = /^ *[0-9]{7,11} *$/;
+            if(!par.test(mobile.value))
+            {
+                alert("请输入正确的手机号码");
+                return false;
+            }
+            val = mobile.value.replace(/(^\s*)|(\s*$)/g, "");
+            if(arguments[0] && arguments[0] == 1){
+                document.getElementById("shouji").action = 'http://tools.2345.com/shouji.htm?m=' + val;
+                document.getElementById("shouji").target = '_blank';
+            }else{
+                window.open( 'http://tools.2345.com/shouji.htm?m=' + val);
+            }
+
+        }
+
+        function chkCard(card) {
+            if(card.length == 15 || card.length == 18){
+
+                var tmp = card;
+                if(card.length == 18) {
+                    card = tmp.substr(0,17);
+                }
+                if(!isNaN(card)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        <!--  -->
+    </script>
+</head>
+
+<body>
+<div class="wrapper">
+    <script type="text/javascript" src="/js/header_2012new.js"></script>
+    <script type="text/javascript" src="/js/search_top2016.js"></script>
+    <div class="tools-nav">
+        <ul class="nav-inner clearfix">
+            <li  class="current"><i class="bd"></i><a href="/">查询首页</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/life.htm">生活服务</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/jiaotong.htm">交通出行</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/xingzuo.htm">星座命理</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/licai.htm">金融理财</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/xuexi.htm">教育学习</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/yule.htm">休闲娱乐</a></li>
+            <li><i class="bd"></i><a href="http://tools.2345.com/jiankang.htm">健康养生</a></li>
+            <li><a href="http://tools.2345.com/network.htm">上网工具</a></li>
+        </ul>
+    </div>
+    <div class="tools-group clearfix">
+        <div class="tools-group-l clearfix">
+            <div class="search-mod clearfix">
+                <span class="tools-icon tools-icon-hc"></span>
+                <h3>火车票查询</h3>
+                <div class="search-mod-con">
+                    <form id="liecheForm" action="http://lvyou.2345.com/train_search.html" method="get" target="_blank">
+                        <input type="hidden" value="1" id="hide" name="search_type">
+                        <input type="hidden" id="hideDate" name="go_date" value="">
+                        <input class="txt1 search-ipt w58" type="text" id="begin2_city" name="begin_city" value="" placeholder="北京" onfocus="showCity('begin2_city');" onblur="hideCity();">
+                        <!-- <input type="text" value="" placeholder="北京" class="search-ipt w80"> -->
+                        <em class="iconfont exchange">&#xe606;</em>
+                        <input class="txt1 search-ipt w58"  type="text" id="end2_city" name="end_city"  value="" placeholder="上海" onblur="hideCity();" onfocus="showCity('end2_city');">
+                        <!-- <input type="text" value="" placeholder="上海" class="search-ipt w80"> -->
+                        <!-- <input type="button" value="查询" class="search-ipt search-ipt-btn"> -->
+                        <input class="btn search-ipt search-ipt-btn" type="button"  onclick="cc('lieche_index_search');go_to_partner();">
+                    </form>
+                </div>
+            </div>
+            <div class="search-mod">
+                <span class="tools-icon tools-icon-sfz"></span>
+                <h3>身份证号码查询</h3>
+                <div class="search-mod-con">
+                    <form action="shenfenzheng.htm" target="_blank" method="get" id="sfzcxFrom">
+                        <input type="text" class="search-ipt w168"  id="sfzcx" name="card" value=""  placeholder="15位或18位号码" >
+                        <input class="search-ipt search-ipt-btn" type="button"  onclick="cc('shenfenzheng_index_search');chkmobile('sfzcx');" >
+                    </form>
+                </div>
+            </div>
+            <div class="search-mod">
+                <span class="tools-icon tools-icon-gsd"></span>
+                <h3>手机号码归属地</h3>
+                <div class="search-mod-con">
+                    <form action="/shouji/" id="shouji"  target="_blank" method="post">
+                        <input type="text" class="search-ipt w168" id="mobile" name="mobile" value="" placeholder="请输入手机号码" >
+                        <input type="button"  class="search-ipt search-ipt-btn" onclick="cc('shouji_index_search');chkmobile();">
+                    </form>
+                </div>
+            </div>
+            <div class="search-mod">
+                <span class="tools-icon tools-icon-ip"></span>
+                <h3>菜谱查询</h3>
+                <div class="search-mod-con">
+                    <form action="/frame/menu/search" target="_blank" id="caipuFrom">
+                        <input class="search-ipt w168" id="caipu" name="keyword" type="text" value="" placeholder="请输入菜谱名称">
+                        <input class="search-ipt search-ipt-btn" type="button"  onclick="cc('caipu_index_search');chkmobile('caipu');">
+                    </form>
+                </div>
+            </div>
+            <div class="search-mod">
+                <span class="tools-icon tools-icon-zgjm"></span>
+                <h3>周公解梦</h3>
+                <div class="search-mod-con">
+                    <form action="/frame/dream/search" method="post" name="form1" id="form1" target="_blank">
+                        <input class="search-ipt w168" name="w" type="text" id="post" value="" placeholder="请输入梦境" onkeydown = "return check_enter(event);" >
+                        <input class="search-ipt search-ipt-btn" type='button'  onclick="cc('youbian_index_search'); check_form();">
+                    </form>
+                </div>
+            </div>
+            <div class="search-mod">
+                <span class="tools-icon tools-icon-xz"></span>
+                <h3>生日密码</h3>
+                <div class="search-mod-con search-mod-con-xz">
+                    <form action="http://tools.2345.com/xingzuo/shengri.htm" method="get">
+                        <div class="select-outer">
+                            <div class="select-inner">
+                                <select name="month" id="month1">
+                                    <option value="1">1</option><option value="2">2</option> <option value="3">3</option><option value="4">4</option> <option value="5">5</option> <option value="6">6</option><option value="7">7</option> <option value="8">8</option><option value="9">9</option><option value="10">10</option> <option value="11">11</option><option value="12">12</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="">月</label>
+
+                        <div class="select-outer">
+                            <div class="select-inner">
+                                <div class="select_inner" id="daySpan1">
+                                    <select name="day" id="day1">
+                                        <option checked value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        <label for="">日</label>
+                        <input type="button"  class="shengri search-ipt search-ipt-btn" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tools-group-r">
+            <a href="http://tools.2345.com/mytools.htm" class="tools-more">更多&gt;&gt;</a>
+            <ul class="user-tools-type clearfix">
+                <li class="current" >我的工具</li>
+                <li>使用过的工具</li>
+            </ul>
+            <div class="user-tools-list">
+                <ul class="user-tools-item clearfix current" id="myhistory">
+
+                </ul>
+                <ul class="user-tools-item clearfix" id="history">
+
+                </ul>
+                <!-- 还未添加过工具 end-->
+            </div>
+        </div>
+    </div>
+    <!-- main -->
+    <div class="main">
+        <!-- 百度广告 -->
+        <div id="BAIDU_DSPUI_FLOWBAR" fixed="true" style="height: 49px; width: 988px; z-index: 2147483647; overflow: hidden; top: 0px; left: 0px; right: auto;  border-top:1px solid #38f;border-right: 1px solid rgb(51, 136, 255); background:#38f; margin: 10px auto 10px;padding-left:1px;">
+            <iframe width="100%" height="100%" frameborder="0" align="center,center" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" style="height: 49px; background-color: #fff;margin-top:-1px;" src="https://entry.baidu.com/rp/home?type=flowbar&amp;di=u2149006&amp;rsi0=auto&amp;rsi1=50&amp;title=%E4%B8%87%E5%B9%B4%E5%8E%86%E6%9F%A5%E8%AF%A2-%E6%97%A5%E5%8E%86%E6%9F%A5%E8%AF%A2-%E4%B8%87%E5%B9%B4%E5%8E%86%E7%AE%97%E5%91%BD-%E5%86%9C%E5%8E%86%E8%BD%AC%E9%98%B3%E5%8E%86_2345%E7%BD%91%E5%9D%80%E5%AF%BC%E8%88%AA-2345.com&amp;ltu=https%3A%2F%2Ftools.2345.com%2Fmanage2345%2FmakeRili.php%3Fact%3Dview&amp;ref=https%3A%2F%2Ftools.2345.com%2Fmanage2345%2Flist_create_page.html&amp;pageWidth=1527&amp;pageHeight=1291&amp;t=1434009086932&amp;rsi0=1527&amp;rsi1=50"></iframe>
+        </div>
+        <!-- 百度广告 -->
+        <div class="tools-link clearfix">
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe609;</em>生活服务</h3>
+                    <a href="http://tools.2345.com/life.htm" target="_blank" onclick="cc('生活服务_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_6" onclick="cc('万年历_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/rili.htm" id="tools_6" target="_blank" onclick="cc('万年历_index_fenlei');"><span class="sy"></span>万年历</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_9" onclick="cc('快递查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/kuaidi.htm" id="tools_9" target="_blank" onclick="cc('快递查询_index_fenlei');"><span class="sy"></span>快递查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_108" onclick="cc('菜谱大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/meishi/" id="tools_108" target="_blank" onclick="cc('菜谱大全_index_fenlei');"><span class="sy"></span>菜谱大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_3" onclick="cc('手机归属地_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/shouji.htm" id="tools_3" target="_blank" onclick="cc('手机归属地_index_fenlei');"><span class="sy"></span>手机归属地</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_193" onclick="cc('电话归属地_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/guhua.htm" id="tools_193" target="_blank" onclick="cc('电话归属地_index_fenlei');"><span class="sy"></span>电话归属地</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_2" onclick="cc('身份证查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/shenfenzheng.htm" id="tools_2" target="_blank" onclick="cc('身份证查询_index_fenlei');"><span class="sy"></span>身份证查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_106" onclick="cc('天气预报_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://tianqi.2345.com/indexs.htm" id="tools_106" target="_blank" onclick="cc('天气预报_index_fenlei');"><span class="sy"></span>天气预报</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_195" onclick="cc('吉日查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/laohuangli.htm" id="tools_195" target="_blank" onclick="cc('吉日查询_index_fenlei');"><span class="sy"></span>吉日查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_192" onclick="cc('北京时间校对_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/timebj/" id="tools_192" target="_blank" onclick="cc('北京时间校对_index_fenlei');"><span class="sy"></span>北京时间校对</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_41" onclick="cc('生活百科_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/zhishi/" id="tools_41" target="_blank" onclick="cc('生活百科_index_fenlei');"><span class="sy"></span>生活百科</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe602;</em>交通出行</h3>
+                    <a href="http://tools.2345.com/jiaotong.htm" target="_blank" onclick="cc('交通出行_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_12" onclick="cc('交通违章查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/weizhang.htm" id="tools_12" target="_blank" onclick="cc('交通违章查询_index_fenlei');"><span class="sy"></span>交通违章查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_1" onclick="cc('订火车票_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/lieche.htm" id="tools_1" target="_blank" onclick="cc('订火车票_index_fenlei');"><span class="sy"></span>订火车票</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_14" onclick="cc('订机票_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jipiao/" id="tools_14" target="_blank" onclick="cc('订机票_index_fenlei');"><span class="sy"></span>订机票</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_15" onclick="cc('订汽车票_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/changtu.htm" id="tools_15" target="_blank" onclick="cc('订汽车票_index_fenlei');"><span class="sy"></span>订汽车票</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_303" onclick="cc('订酒店_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/hotel/" id="tools_303" target="_blank" onclick="cc('订酒店_index_fenlei');"><span class="sy"></span>订酒店</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_111" onclick="cc('电子地图_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/map.htm" id="tools_111" target="_blank" onclick="cc('电子地图_index_fenlei');"><span class="sy"></span>电子地图</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_16" onclick="cc('公交查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/bus.htm" id="tools_16" target="_blank" onclick="cc('公交查询_index_fenlei');"><span class="sy"></span>公交查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_13" onclick="cc('车牌号查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/carlist.htm" id="tools_13" target="_blank" onclick="cc('车牌号查询_index_fenlei');"><span class="sy"></span>车牌号查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_292" onclick="cc('驾驶证扣分查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jiashizheng/" id="tools_292" target="_blank" onclick="cc('驾驶证扣分查询_index_fenlei');"><span class="sy"></span>驾驶证扣分查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_281" onclick="cc('自驾线路查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jiaotong/zj.htm" id="tools_281" target="_blank" onclick="cc('自驾线路查询_index_fenlei');"><span class="sy"></span>自驾线路查询</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe601;</em>星座命理</h3>
+                    <a href="http://tools.2345.com/xingzuo.htm" target="_blank" onclick="cc('星座命理_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_565" onclick="cc('心理测试_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="//quwcs/" id="tools_565" target="_blank" onclick="cc('心理测试_index_fenlei');"><span class="sy"></span>心理测试</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_564" onclick="cc('星座运势_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="//xingzuoyc.htm" id="tools_564" target="_blank" onclick="cc('星座运势_index_fenlei');"><span class="sy"></span>星座运势</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_455" onclick="cc('生日密码_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/xingzuo/shengri.htm" id="tools_455" target="_blank" onclick="cc('生日密码_index_fenlei');"><span class="sy"></span>生日密码</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_169" onclick="cc('血型自测_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/xuexing/xxzc.htm" id="tools_169" target="_blank" onclick="cc('血型自测_index_fenlei');"><span class="sy"></span>血型自测</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_49" onclick="cc('血型性格_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/xuexing/" id="tools_49" target="_blank" onclick="cc('血型性格_index_fenlei');"><span class="sy"></span>血型性格</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_114" onclick="cc('塔罗牌占卜_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/astro/taluo.htm" id="tools_114" target="_blank" onclick="cc('塔罗牌占卜_index_fenlei');"><span class="sy"></span>塔罗牌占卜</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_221" onclick="cc('星座查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/xingzuocx.htm" id="tools_221" target="_blank" onclick="cc('星座查询_index_fenlei');"><span class="sy"></span>星座查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_7" onclick="cc('闹闹女巫店_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/naonao/" id="tools_7" target="_blank" onclick="cc('闹闹女巫店_index_fenlei');"><span class="sy"></span>闹闹女巫店</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_244" onclick="cc('苏珊米勒运势_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/astro/susan.htm" id="tools_244" target="_blank" onclick="cc('苏珊米勒运势_index_fenlei');"><span class="sy"></span>苏珊米勒运势</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_254" onclick="cc('星座配对_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/peidui/xingzuo" id="tools_254" target="_blank" onclick="cc('星座配对_index_fenlei');"><span class="sy"></span>星座配对</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe60f;</em>算命大全</h3>
+                    <a href="http://tools.2345.com/suanming/" target="_blank" onclick="cc('算命大全_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_17" onclick="cc('周公解梦_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/zhgjm.htm" id="tools_17" target="_blank" onclick="cc('周公解梦_index_fenlei');"><span class="sy"></span>周公解梦</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_276" onclick="cc('姓名分析_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/suanming/xm.htm" id="tools_276" target="_blank" onclick="cc('姓名分析_index_fenlei');"><span class="sy"></span>姓名分析</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_20" onclick="cc('免费算命_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/suanming.htm" id="tools_20" target="_blank" onclick="cc('免费算命_index_fenlei');"><span class="sy"></span>免费算命</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_507" onclick="cc('2016生肖运程_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/shengxiao/" id="tools_507" target="_blank" onclick="cc('2016生肖运程_index_fenlei');"><span class="sy"></span>2016生肖运程<span class="massage massage-new"></span></a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_48" onclick="cc('手相查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/shouxiang/" id="tools_48" target="_blank" onclick="cc('手相查询_index_fenlei');"><span class="sy"></span>手相查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_267" onclick="cc('手机号码吉凶_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/haoma/shouji/" id="tools_267" target="_blank" onclick="cc('手机号码吉凶_index_fenlei');"><span class="sy"></span>手机号码吉凶</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_261" onclick="cc('观音灵签_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/zhanbu/guanyin/" id="tools_261" target="_blank" onclick="cc('观音灵签_index_fenlei');"><span class="sy"></span>观音灵签</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_478" onclick="cc('八字合婚_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/suanming/bzhh.htm" id="tools_478" target="_blank" onclick="cc('八字合婚_index_fenlei');"><span class="sy"></span>八字合婚</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_255" onclick="cc('三世财运_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/caiyun/" id="tools_255" target="_blank" onclick="cc('三世财运_index_fenlei');"><span class="sy"></span>三世财运</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_30" onclick="cc('生男生女清宫图_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/sasvyc.htm" id="tools_30" target="_blank" onclick="cc('生男生女清宫图_index_fenlei');"><span class="sy"></span>生男生女清宫图</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe60b;</em>金融理财</h3>
+                    <a href="http://tools.2345.com/licai.htm" target="_blank" onclick="cc('金融理财_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_25" onclick="cc('黄金价格走势_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/gold.htm" id="tools_25" target="_blank" onclick="cc('黄金价格走势_index_fenlei');"><span class="sy"></span>黄金价格走势</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_326" onclick="cc('养老保险查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yanglao/" id="tools_326" target="_blank" onclick="cc('养老保险查询_index_fenlei');"><span class="sy"></span>养老保险查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_26" onclick="cc('公积金查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/gjjcx.htm" id="tools_26" target="_blank" onclick="cc('公积金查询_index_fenlei');"><span class="sy"></span>公积金查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_327" onclick="cc('医疗保险查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yiliao/" id="tools_327" target="_blank" onclick="cc('医疗保险查询_index_fenlei');"><span class="sy"></span>医疗保险查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_293" onclick="cc('房价查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.2345.com/house.htm#house" id="tools_293" target="_blank" onclick="cc('房价查询_index_fenlei');"><span class="sy"></span>房价查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_534" onclick="cc('投资理财_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://licai.2345.com/licai" id="tools_534" target="_blank" onclick="cc('投资理财_index_fenlei');"><span class="sy"></span>投资理财</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_124" onclick="cc('汽车报价_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.2345.com/car/price.htm" id="tools_124" target="_blank" onclick="cc('汽车报价_index_fenlei');"><span class="sy"></span>汽车报价</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_118" onclick="cc('外汇牌价_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.boc.cn/sourcedb/whpj/" id="tools_118" target="_blank" onclick="cc('外汇牌价_index_fenlei');"><span class="sy"></span>外汇牌价</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_61" onclick="cc('在线计算器_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jishunqi.htm" id="tools_61" target="_blank" onclick="cc('在线计算器_index_fenlei');"><span class="sy"></span>在线计算器</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_511" onclick="cc('信用卡申请_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://licai.2345.com/credit/" id="tools_511" target="_blank" onclick="cc('信用卡申请_index_fenlei');"><span class="sy"></span>信用卡申请<span class="massage massage-new"></span></a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe60e;</em>教育学习</h3>
+                    <a href="http://tools.2345.com/xuexi.htm" target="_blank" onclick="cc('教育学习_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_27" onclick="cc('在线翻译_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/translate.htm" id="tools_27" target="_blank" onclick="cc('在线翻译_index_fenlei');"><span class="sy"></span>在线翻译</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_58" onclick="cc('新华字典_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/zidcd.htm" id="tools_58" target="_blank" onclick="cc('新华字典_index_fenlei');"><span class="sy"></span>新华字典</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_202" onclick="cc('成语大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/chengyu/" id="tools_202" target="_blank" onclick="cc('成语大全_index_fenlei');"><span class="sy"></span>成语大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_471" onclick="cc('大学查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://edu.2345.com/daxueku.htm" id="tools_471" target="_blank" onclick="cc('大学查询_index_fenlei');"><span class="sy"></span>大学查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_60" onclick="cc('繁简转换_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jianfanzh.htm" id="tools_60" target="_blank" onclick="cc('繁简转换_index_fenlei');"><span class="sy"></span>繁简转换</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_137" onclick="cc('五笔编码查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.52wubi.com/wbbmcx/" id="tools_137" target="_blank" onclick="cc('五笔编码查询_index_fenlei');"><span class="sy"></span>五笔编码查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_134" onclick="cc('考试成绩查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://chaxun.neea.edu.cn/examcenter/query.cn?op=doQuerySubject&pram=results" id="tools_134" target="_blank" onclick="cc('考试成绩查询_index_fenlei');"><span class="sy"></span>考试成绩查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_136" onclick="cc('学历证书查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.chsi.com.cn/xlcx/?0" id="tools_136" target="_blank" onclick="cc('学历证书查询_index_fenlei');"><span class="sy"></span>学历证书查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_368" onclick="cc('学籍查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://xjxl.chsi.com.cn/index.action" id="tools_368" target="_blank" onclick="cc('学籍查询_index_fenlei');"><span class="sy"></span>学籍查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_82" onclick="cc('单位换算_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/converter.htm" id="tools_82" target="_blank" onclick="cc('单位换算_index_fenlei');"><span class="sy"></span>单位换算</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe605;</em>资料检索</h3>
+                    <a href="http://tools.2345.com/xuexi.htm" target="_blank" onclick="cc('资料检索_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_140" onclick="cc('朝代顺序表_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/lscd.htm" id="tools_140" target="_blank" onclick="cc('朝代顺序表_index_fenlei');"><span class="sy"></span>朝代顺序表</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_433" onclick="cc('作文大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.zuowen.com/redianhuti/" id="tools_433" target="_blank" onclick="cc('作文大全_index_fenlei');"><span class="sy"></span>作文大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_214" onclick="cc('名人名言_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yulu/" id="tools_214" target="_blank" onclick="cc('名人名言_index_fenlei');"><span class="sy"></span>名人名言</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_216" onclick="cc('脑筋急转弯_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jzw/" id="tools_216" target="_blank" onclick="cc('脑筋急转弯_index_fenlei');"><span class="sy"></span>脑筋急转弯</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_215" onclick="cc('谜语大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/miyu/" id="tools_215" target="_blank" onclick="cc('谜语大全_index_fenlei');"><span class="sy"></span>谜语大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_200" onclick="cc('唐诗三百首_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/tangshi/" id="tools_200" target="_blank" onclick="cc('唐诗三百首_index_fenlei');"><span class="sy"></span>唐诗三百首</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_251" onclick="cc('三字经_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/sanzj/" id="tools_251" target="_blank" onclick="cc('三字经_index_fenlei');"><span class="sy"></span>三字经</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_138" onclick="cc('百家姓_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/baijx/" id="tools_138" target="_blank" onclick="cc('百家姓_index_fenlei');"><span class="sy"></span>百家姓</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_449" onclick="cc('弟子规_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jiaoyu/dzg.htm" id="tools_449" target="_blank" onclick="cc('弟子规_index_fenlei');"><span class="sy"></span>弟子规</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_91" onclick="cc('各国国旗国徽_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/geguo/" id="tools_91" target="_blank" onclick="cc('各国国旗国徽_index_fenlei');"><span class="sy"></span>各国国旗国徽</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe60d;</em>休闲娱乐</h3>
+                    <a href="http://tools.2345.com/yule.htm" target="_blank" onclick="cc('休闲娱乐_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_508" onclick="cc('趣味测试_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/quwcs/" id="tools_508" target="_blank" onclick="cc('趣味测试_index_fenlei');"><span class="sy"></span>趣味测试<span class="massage massage-new"></span></a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_34" onclick="cc('同名同姓查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/xingming.htm" id="tools_34" target="_blank" onclick="cc('同名同姓查询_index_fenlei');"><span class="sy"></span>同名同姓查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_424" onclick="cc('QQ头像大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.duote.com/qqtouxiang/?tools" id="tools_424" target="_blank" onclick="cc('QQ头像大全_index_fenlei');"><span class="sy"></span>QQ头像大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_21" onclick="cc('姓名测试_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/quwcs/grcf.htm" id="tools_21" target="_blank" onclick="cc('姓名测试_index_fenlei');"><span class="sy"></span>姓名测试</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_321" onclick="cc('在线签名设计_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yule/qianming.htm" id="tools_321" target="_blank" onclick="cc('在线签名设计_index_fenlei');"><span class="sy"></span>在线签名设计</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_219" onclick="cc('短信大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/duanxin/" id="tools_219" target="_blank" onclick="cc('短信大全_index_fenlei');"><span class="sy"></span>短信大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_460" onclick="cc('花语大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yule/flower.htm" id="tools_460" target="_blank" onclick="cc('花语大全_index_fenlei');"><span class="sy"></span>花语大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_373" onclick="cc('心理年龄测试_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://app.yeekang.com/iframe/cntv/pingce-ccndxlnlzc/715/800" id="tools_373" target="_blank" onclick="cc('心理年龄测试_index_fenlei');"><span class="sy"></span>心理年龄测试</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_306" onclick="cc('搞笑证件制作_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yule/zhengjian.htm" id="tools_306" target="_blank" onclick="cc('搞笑证件制作_index_fenlei');"><span class="sy"></span>搞笑证件制作</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_466" onclick="cc('英文名字大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/yule/ywm.htm" id="tools_466" target="_blank" onclick="cc('英文名字大全_index_fenlei');"><span class="sy"></span>英文名字大全</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe607;</em>健康养生</h3>
+                    <a href="http://tools.2345.com/jiankang.htm" target="_blank" onclick="cc('健康养生_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_171" onclick="cc('民间偏方大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/pianfang/" id="tools_171" target="_blank" onclick="cc('民间偏方大全_index_fenlei');"><span class="sy"></span>民间偏方大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_31" onclick="cc('标准体重_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/study_tizhong.htm" id="tools_31" target="_blank" onclick="cc('标准体重_index_fenlei');"><span class="sy"></span>标准体重</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_360" onclick="cc('女性标准三围_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jiankang/sanwei.htm" id="tools_360" target="_blank" onclick="cc('女性标准三围_index_fenlei');"><span class="sy"></span>女性标准三围</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_29" onclick="cc('安全期计算器_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/womensafe.htm" id="tools_29" target="_blank" onclick="cc('安全期计算器_index_fenlei');"><span class="sy"></span>安全期计算器</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_376" onclick="cc('长寿评估测试_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://app.yeekang.com/iframe/cntv/pingce-cspg/715/800" id="tools_376" target="_blank" onclick="cc('长寿评估测试_index_fenlei');"><span class="sy"></span>长寿评估测试</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_329" onclick="cc('生男生女预测_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/snsv/" id="tools_329" target="_blank" onclick="cc('生男生女预测_index_fenlei');"><span class="sy"></span>生男生女预测</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_288" onclick="cc('减肥方法_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.2345.com/jianfei.htm" id="tools_288" target="_blank" onclick="cc('减肥方法_index_fenlei');"><span class="sy"></span>减肥方法</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_164" onclick="cc('酒方大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/jiufang/" id="tools_164" target="_blank" onclick="cc('酒方大全_index_fenlei');"><span class="sy"></span>酒方大全</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_388" onclick="cc('疾病查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://jbk.39.net/" id="tools_388" target="_blank" onclick="cc('疾病查询_index_fenlei');"><span class="sy"></span>疾病查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_383" onclick="cc('养生食谱_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/meishi/yangsheng.htm" id="tools_383" target="_blank" onclick="cc('养生食谱_index_fenlei');"><span class="sy"></span>养生食谱</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+                        <div class="tools-link-mod">
+                <div class="tools-link-hd">
+                    <h3><em class="iconfont">&#xe60c;</em>上网工具</h3>
+                    <a href="http://tools.2345.com/xuexi.htm" target="_blank" onclick="cc('上网工具_index_more')" class="tools-more">更多>></a>
+                </div>
+                <div class="tools-link-bd">
+                    <ul>
+                                                                        <li>
+                            <em id="mytools_5" onclick="cc('IP地址查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="/ipcx.htm" id="tools_5" target="_blank" onclick="cc('IP地址查询_index_fenlei');"><span class="sy"></span>IP地址查询<span class="massage massage-hot"></span></a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_72" onclick="cc('网速测试_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.linkwan.com/gb/broadmeter/SpeedAuto/" id="tools_72" target="_blank" onclick="cc('网速测试_index_fenlei');"><span class="sy"></span>网速测试</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_476" onclick="cc('微信网页版_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="https://wx.qq.com/" id="tools_476" target="_blank" onclick="cc('微信网页版_index_fenlei');"><span class="sy"></span>微信网页版</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_178" onclick="cc('QQ号码申请_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://zc.qq.com/chs/index.html" id="tools_178" target="_blank" onclick="cc('QQ号码申请_index_fenlei');"><span class="sy"></span>QQ号码申请</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_322" onclick="cc('头像设计_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.jiqie.com/" id="tools_322" target="_blank" onclick="cc('头像设计_index_fenlei');"><span class="sy"></span>头像设计</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_324" onclick="cc('本地导航_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://city.2345.com/" id="tools_324" target="_blank" onclick="cc('本地导航_index_fenlei');"><span class="sy"></span>本地导航</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_73" onclick="cc('常用软件下载_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.2345.com/soft/" id="tools_73" target="_blank" onclick="cc('常用软件下载_index_fenlei');"><span class="sy"></span>常用软件下载</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_434" onclick="cc('网址安全查询_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://aq.qq.com/cn2/safe_school/url_query_index" id="tools_434" target="_blank" onclick="cc('网址安全查询_index_fenlei');"><span class="sy"></span>网址安全查询</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_186" onclick="cc('电脑问题解答_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://zhidao.baidu.com/browse/74" id="tools_186" target="_blank" onclick="cc('电脑问题解答_index_fenlei');"><span class="sy"></span>电脑问题解答</a>
+
+                        </li>
+                                                                                                <li>
+                            <em id="mytools_248" onclick="cc('快捷键大全_index_addmytools');" class="iconfont tools-add  "></em>
+                            <a href="http://www.xuexila.com/diannao/rumen/8431.html" id="tools_248" target="_blank" onclick="cc('快捷键大全_index_fenlei');"><span class="sy"></span>快捷键大全</a>
+
+                        </li>
+                                                                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div style="margin:10px 0 0 0">
+            <script type="text/javascript">
+                /*实用查询 多彩标签云 创建于2016-05-18*/
+                var cpro_id = "u2643335";
+
+            </script>
+            <script src="https://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+        </div>
+    </div>
+    <!-- main end -->
+    <div class="tools-hot">
+	<div class="tools-hot-hd">热门工具</div>
+	<div class="tools-hot-bd fixed_bar_con">
+		<a href="http://tools.2345.com/zhgjm.htm?f2"  target="_blank" onclick="setHistory(17,'tools');" class="first"><span>周公解梦<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/rili.htm?f2"  target="_blank"  onclick="setHistory(6,'tools');" ><span>万年历<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/weizhang.htm?f2"  target="_blank"  onclick="setHistory(12,'tools');"><span>违章查询<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/naonao/?f2"  target="_blank"  onclick="setHistory(7,'tools');"><span>闹闹星座<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/suanming/?f2"  target="_blank"  onclick="setHistory(20,'tools');"><span>免费算命<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/kuaidi.htm?f2"  target="_blank" onclick="setHistory(9,'tools');"><span>快递查询<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/meishi/?f2"  target="_blank"  onclick="setHistory(108,'tools');"><span>家常菜菜谱<em class="iconfont tools-add">&#xe600;</em></span></a>
+		<a href="http://tools.2345.com/zhanbu/guanyin?f2"  target="_blank"  onclick="setHistory(261,'tools');" class="last"><span>观音灵签<em class="iconfont tools-add">&#xe600;</em></span></a>
+	</div>	
+		<script type="text/javascript">
+			var url = window.location.pathname;		
+			var urlArr = ['/life.htm', '/jiaotong.htm', '/xingzuo.htm', '/licai.htm', '/xuexi.htm', '/yule.htm', '/jiankang.htm', '/network.htm', '/mytools.htm', '/city/beijing.htm', '/city/shanghai.htm',
+			'/city/tianjin.htm', '/city/chongqing.htm', '/rili.htm'];				
+			for(var x in urlArr)	
+			{
+				if(url.indexOf(urlArr[x]) != -1)
+				{				
+					document.write('<div class="tools-hot-ft"><div class="sx"></div><a href="/" class="return-tools"><span class="sj"></span>返回实用查询</a></div>');
+					break;
+				}
+			}
+		</script>
+	
+</div>
+</div>
+<script type="text/javascript" src="/js/footer201307.js"></script>
+<script type="text/javascript" src="/js/jExt.1.0.js"></script>
+<!--<script type="text/javascript" src="/js/header_2012new_s.js"></script>-->
+<script type="text/javascript" src="/js/footer.js"></script>
+<!--<script type="text/javascript" src="/js/tianqi.js"></script>-->
+<!-- footer end -->
+<script type="text/javascript" src="//www.2345.com/css/citySelectData.js?ver=2"></script>
+<script type="text/javascript" src="//www.2345.com/css/citySelectFunction_index.js?ver=1"></script>
+<script type="text/javascript" src="//www.2345.com/css/indexTqSetFunction_index0503.js?ver=1"></script>
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/common/function.js"></script>
+<script src="/js/common/https.js"></script>
+
+<script>
+    $('.shengri').click(function(){
+        var m = $('#month1').val();
+        var d = $('#day1').val();
+        window.open( "http://tools.2345.com/xingzuo/shengri.htm?month="+m+"&day="+d+"#srmm");
+    })
+
+
+    $('.user-tools-type li').hover(function(){
+        $(this).addClass('current').siblings().removeClass('current');
+        var idx=$(this).index();
+        $('.user-tools-item').eq(idx).addClass('current').siblings().removeClass('current');
+    })
+
+    //placeholder
+    $(function(){
+        setHistoryHtml('myhistory', 1);
+
+        if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+            $('[placeholder]').focus(function() {
+                var input = $(this);
+                if (input.val() == input.attr('placeholder')) {
+                    input.val('');
+                    input.removeClass('placeholder');
+                }
+            }).blur(function() {
+                var input = $(this);
+                if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                    input.addClass('placeholder');
+                    input.val(input.attr('placeholder'));
+                }
+            }).blur();
+        };
+    })
+    function placeholderSupport() {
+        return 'placeholder' in document.createElement('input');
+    }
+
+    $('.user-tools-item, .tools-link-bd').on('mouseenter','li:not(.no-collect, .other-user-tools)',function(){
+        $(this).children('.tools-add,.tools-delete').show();
+        $(this).addClass('a-hover');
+    });
+    $('.user-tools-item, .tools-link-bd').on('mouseleave','li',function(){
+        $('.add-result-no').remove();
+        $('.add-result-yes').remove();
+        $(this).children('.tools-add,.tools-delete').hide();
+        $(this).removeClass('a-hover');
+    });
+</script>
+</body>
+
+</html>

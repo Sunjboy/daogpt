@@ -1,0 +1,80 @@
+<?php
+require("../../inc/header.php");
+
+/*
+		SoftName : EmpireBak Version 2010
+		Author   : wm_chief
+		Copyright: Powered by www.phome.net
+*/
+
+DoSetDbChar('gb2312');
+E_D("DROP TABLE IF EXISTS `sm_jiazi`;");
+E_C("CREATE TABLE `sm_jiazi` (
+  `id` int(11) NOT NULL,
+  `jiazi` varchar(50) DEFAULT NULL,
+  `layin` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=gb2312");
+E_D("replace into `sm_jiazi` values('1','¼××Ó','º£ÖÐ½ð');");
+E_D("replace into `sm_jiazi` values('2','ÒÒ³ó','º£ÖÐ½ð');");
+E_D("replace into `sm_jiazi` values('3','±ûÒú','Â¯ÖÐ»ð');");
+E_D("replace into `sm_jiazi` values('4','¶¡Ã®','Â¯ÖÐ»ð');");
+E_D("replace into `sm_jiazi` values('5','Îì³½','´óÁÖÄ¾');");
+E_D("replace into `sm_jiazi` values('6','¼ºËÈ','´óÁÖÄ¾');");
+E_D("replace into `sm_jiazi` values('7','¸ýÎç','Â·ÅÔÍÁ');");
+E_D("replace into `sm_jiazi` values('8','ÐÁÎ´','Â·ÅÔÍÁ');");
+E_D("replace into `sm_jiazi` values('9','ÈÉÉê','½£·æ½ð');");
+E_D("replace into `sm_jiazi` values('10','¹ïÓÏ','½£·æ½ð');");
+E_D("replace into `sm_jiazi` values('11','¼×Ðç','É½Í·»ð');");
+E_D("replace into `sm_jiazi` values('12','ÒÒº¥','É½Í·»ð');");
+E_D("replace into `sm_jiazi` values('13','±û×Ó','¶´ÏÂË®');");
+E_D("replace into `sm_jiazi` values('14','¶¡³ó','¶´ÏÂË®');");
+E_D("replace into `sm_jiazi` values('15','ÎìÒú','³ÇÇ½ÍÁ');");
+E_D("replace into `sm_jiazi` values('16','¼ºÃ®','³ÇÇ½ÍÁ');");
+E_D("replace into `sm_jiazi` values('17','¸ý³½','°×À°½ð');");
+E_D("replace into `sm_jiazi` values('18','ÐÁËÈ','°×À°½ð');");
+E_D("replace into `sm_jiazi` values('19','ÈÉÎç','ÑîÁøÄ¾');");
+E_D("replace into `sm_jiazi` values('20','¹ïÎ´','ÑîÁøÄ¾');");
+E_D("replace into `sm_jiazi` values('21','¼×Éê','ÈªÖÐË®');");
+E_D("replace into `sm_jiazi` values('22','ÒÒÓÏ','ÈªÖÐË®');");
+E_D("replace into `sm_jiazi` values('23','±ûÐç','ÎÝÉÏÍÁ');");
+E_D("replace into `sm_jiazi` values('24','¶¡º¥','ÎÝÉÏÍÁ');");
+E_D("replace into `sm_jiazi` values('25','Îì×Ó','ÅùÀ×»ð');");
+E_D("replace into `sm_jiazi` values('26','¼º³ó','ÅùÀ×»ð');");
+E_D("replace into `sm_jiazi` values('27','¸ýÒú','ËÉ°ØÄ¾');");
+E_D("replace into `sm_jiazi` values('28','ÐÁÃ®','ËÉ°ØÄ¾');");
+E_D("replace into `sm_jiazi` values('29','ÈÉ³½','³£Á÷Ë®');");
+E_D("replace into `sm_jiazi` values('30','¹ïËÈ','³£Á÷Ë®');");
+E_D("replace into `sm_jiazi` values('31','¼×Îç','É³ÖÐ½ð');");
+E_D("replace into `sm_jiazi` values('32','ÒÒÎ´','É³ÖÐ½ð');");
+E_D("replace into `sm_jiazi` values('33','±ûÉê','É½ÏÂ»ð');");
+E_D("replace into `sm_jiazi` values('34','¶¡ÓÏ','É½ÏÂ»ð');");
+E_D("replace into `sm_jiazi` values('35','ÎìÐç','Æ½µØÄ¾');");
+E_D("replace into `sm_jiazi` values('36','¼ºº¥','Æ½µØÄ¾');");
+E_D("replace into `sm_jiazi` values('37','¸ý×Ó','±ÚÉÏÍÁ');");
+E_D("replace into `sm_jiazi` values('38','ÐÁ³ó','±ÚÉÏÍÁ');");
+E_D("replace into `sm_jiazi` values('39','ÈÉÒú','½ð²­½ð');");
+E_D("replace into `sm_jiazi` values('40','¹ïÃ®','½ð²­½ð');");
+E_D("replace into `sm_jiazi` values('41','¼×³½','·ðµÆ»ð');");
+E_D("replace into `sm_jiazi` values('42','ÒÒËÈ','·ðµÆ»ð');");
+E_D("replace into `sm_jiazi` values('43','±ûÎç','ÌìºÓË®');");
+E_D("replace into `sm_jiazi` values('44','¶¡Î´','ÌìºÓË®');");
+E_D("replace into `sm_jiazi` values('45','ÎìÉê','´óæäÍÁ');");
+E_D("replace into `sm_jiazi` values('46','¼ºÓÏ','´óæäÍÁ');");
+E_D("replace into `sm_jiazi` values('47','¸ýÐç','îÎîË½ð');");
+E_D("replace into `sm_jiazi` values('48','ÐÁº¥','îÎîË½ð');");
+E_D("replace into `sm_jiazi` values('49','ÈÉ×Ó','É£ËÉÄ¾');");
+E_D("replace into `sm_jiazi` values('50','¹ï³ó','É£ËÉÄ¾');");
+E_D("replace into `sm_jiazi` values('51','¼×Òú','´óÏªË®');");
+E_D("replace into `sm_jiazi` values('52','ÒÒÃ®','´óÏªË®');");
+E_D("replace into `sm_jiazi` values('53','±û³½','É³ÖÐÍÁ');");
+E_D("replace into `sm_jiazi` values('54','¶¡ËÈ','É³ÖÐÍÁ');");
+E_D("replace into `sm_jiazi` values('55','ÎìÎç','ÌìÉÏ»ð');");
+E_D("replace into `sm_jiazi` values('56','¼ºÎ´','ÌìÉÏ»ð');");
+E_D("replace into `sm_jiazi` values('57','¸ýÉê','Ê¯ÁñÄ¾');");
+E_D("replace into `sm_jiazi` values('58','ÐÁÓÏ','Ê¯ÁñÄ¾');");
+E_D("replace into `sm_jiazi` values('59','ÈÉÐç','´óº£Ë®');");
+E_D("replace into `sm_jiazi` values('60','¹ïº¥','´óº£Ë®');");
+
+require("../../inc/footer.php");
+?>
