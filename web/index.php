@@ -11,10 +11,12 @@ if($is_iphone==true && $_SERVER['HTTP_HOST']!='m.ss230.com'){
     exit;
 }
 */
-
+print ($_SERVER['REQUEST_URI']);print ("3333");
 if(preg_match('/(blackberry|configuration\/cldc|hp |hp-|htc |htc_|htc-|iemobile|kindle|midp|mmp|motorola|mobile|nokia|opera mini|opera |Googlebot-Mobile|YahooSeeker\/M1A1-R2D2|android|iphone|ipod|mobi|palm|palmos|pocket|portalmmm|ppc;|smartphone|sonyericsson|sqh|spv|symbian|treo|up.browser|up.link|vodafone|windows ce|xda |xda_)/i', $_SERVER['HTTP_USER_AGENT'])){
-	if($_SERVER['HTTP_HOST']=='47.115.208.20'){
+	if($_SERVER['HTTP_HOST']=='47.115.208.20' || $_SERVER['HTTP_HOST']=='47.115.208.20/m'){
+		#exit ($_SERVER['REQUEST_URI']);
 		header('Location: http://47.115.208.20'.$_SERVER['REQUEST_URI']);
+		#header('Location: http://47.115.208.20/m');
     	exit;
 	}
 }

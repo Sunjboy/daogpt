@@ -6,6 +6,23 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 <link type="text/css" rel="stylesheet" href="/static/bazi/css/suanming/v2/fortune.css"/>
+<script>
+    var txt = document.getElementById("chat_txt").value;
+    var form = document.getElementById("chat_form");
+    form.addEventListener("submit", chatResponse);
+    function chatResponse() 
+    {
+        if txt.length == 0: return;
+        appendMessage(msg)
+        // appendMessage()
+    }
+    function appendMessage(msg)
+    {
+        var elem_li = document.createElement('li').setAttribute('bot_output'); // 生成一个 li元素
+        elem_li.innerHTML = msg; // 设置元素的内容
+        document.getElementById('chat_list').appendChild(elem_li);
+    }
+</script>
 <div class="wrapper">
     <div class="main">
         <div class="menu_xy">
@@ -238,17 +255,29 @@ hdjr/yinyangli/" target="_blank">阴阳历转换</a>]
                             <a href="/suanming/sscy/">三世财运</a>
                             <a href="/suanming/bzcs/">八字测算</a>
                         </div>
-			<div class="mod_box_t3 fn_box">
+<!-- 			<div class="mod_box_t3 fn_box">
 				<div class="box_con">
 					<form action="/chat.php" method="post">
 						<label for="chat_input">请输入你的问题：</label>
-						<input type="text" id="chat_input">
-						
-								<input class="btn_orange_1" type="submit" value=" 发送">
+						<input type="text" id="chat_input" placeholder="处女座性格特点">
+						<input class="btn_orange_1" type="submit" value=" 发送">
 						
 					</form>
 				</div>
-			</div>
+			</div> -->
+            <div class="mod_box_t3 fn_box">
+                <ul class="chat_list" id='chat_list'>
+                    <li class='bot_output'>吾乃神算子，施主有何疑问？</li>
+                </ul>
+                <div class="box_con">
+                    <form action="" method="post" id='chat_form'>
+                        <input class="txt_input" id='chat_txt' type="text"  placeholder="处女座性格特点">
+                        <input class="btn_orange_1" id='chat_submit' type="submit" value="发送">                        
+                    </form>
+                </div>
+            </div>
+
+
                         <div class="in_haoma clearfix">
                             <div class="intro_area"><strong><a href="/xingming/xmfx/">「姓名算命」</a></strong>千古不传的秘密,流落民间的八字知识秘籍,姓名学的五格就是，天格、人格、地格、外格、总格。三才配置天格、地格、人格，五行配置所发生的凶吉影响力...来给你的名字测试打分吧！</div>
                             <div class="intro_area"><strong><a href="/xingming/qiming/">「在线起名」</a></strong>古语云"宁可生错命，不可起错名"，一个好的名字，不仅给别人印象深刻，而且还关系到人一生的事业、婚姻、健康和人际关系
@@ -344,3 +373,4 @@ $this->_smarty_include(array('smarty_include_tpl_file' => './index/footer.tpl', 
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>-->
+
