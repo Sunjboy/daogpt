@@ -6,6 +6,38 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 <link type="text/css" rel="stylesheet" href="/static/bazi/css/suanming/v2/fortune.css"/>
+<script>
+    function chatResponse(){
+        var txt = document.getElementById("chat_txt").value;
+        appendMessage("user", "right", txt);
+        appendMessage("神算子", "left", "这个问题问得好！")
+        // document.getElementById("chat_form").addEventListener("submit", chatResponse);
+    }
+    // function appendMessage(msg){
+    //     var elem_li = document.createElement('li');
+    //     elem_li.setAttribute('class', 'bot_output');
+    //     // console.log("appendMessage:" + msg);
+    //     elem_li.innerHTML = msg;
+    //     document.getElementById('chat_list').appendChild(elem_li);
+    // }
+    function appendMessage(name, side, msg){
+        const msgHTML = `
+            <div class="msg ${side}-msg">
+              <div class="msg-img"></div>
+              <div class="msg-bubble">
+                <div class="msg-info">
+                  <div class="msg-info-name">${name}</div>
+                  <div class="msg-info-time">00:00</div>
+                </div>
+                <div class="msg-text">${msg}</div>
+              </div>
+            </div>`;
+        var msgerChat = document.getElementById("msger-chat-id");
+        msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+        msgerChat.scrollTop += 500;
+    }
+
+</script>
 <div class="wrapper">
     <div class="main">
         <div class="menu_xy">
@@ -238,17 +270,31 @@ hdjr/yinyangli/" target="_blank">阴阳历转换</a>]
                             <a href="/suanming/sscy/">三世财运</a>
                             <a href="/suanming/bzcs/">八字测算</a>
                         </div>
-			<div class="mod_box_t3 fn_box">
-				<div class="box_con">
-					<form action="/chat.php" method="post">
-						<label for="chat_input">请输入你的问题：</label>
-						<input type="text" id="chat_input">
-						
-								<input class="btn_orange_1" type="submit" value=" 发送">
-						
-					</form>
-				</div>
-			</div>
+            <div class="mod_box_t3 fn_box">
+                <div class="msger-chat" id="msger-chat-id">
+                    <div class="msg left-msg">
+                        <div class="msg-img"></div>
+                        <div class="msg-bubble">
+                            <div class="msg-info">
+                                <div class="msg-info-name">神算子</div>
+                                <div class="msg-info-time">00:00</div>
+                            </div>
+                            <div class="msg-text"> 吾乃神算子，施主有何疑问？</div>
+                        </div>
+                    </div>
+                </div>
+<!--                 <ul class="chat_list" id='chat_list'>
+                    <li class='bot_output'>吾乃神算子，施主有何疑问？</li>
+                </ul>
+ -->                <div class="box_con">
+                    <form action="" method="post" id='chat_form'>
+                        <input class="txt_input" id='chat_txt' type="text"  placeholder="请输入">
+                        <input class="btn_orange_1" id='chat_submit' type="button" value="发送" onclick="chatResponse()">                        
+                    </form>
+                </div>
+            </div>
+
+
                         <div class="in_haoma clearfix">
                             <div class="intro_area"><strong><a href="/xingming/xmfx/">「姓名算命」</a></strong>千古不传的秘密,流落民间的八字知识秘籍,姓名学的五格就是，天格、人格、地格、外格、总格。三才配置天格、地格、人格，五行配置所发生的凶吉影响力...来给你的名字测试打分吧！</div>
                             <div class="intro_area"><strong><a href="/xingming/qiming/">「在线起名」</a></strong>古语云"宁可生错命，不可起错名"，一个好的名字，不仅给别人印象深刻，而且还关系到人一生的事业、婚姻、健康和人际关系
@@ -344,3 +390,4 @@ $this->_smarty_include(array('smarty_include_tpl_file' => './index/footer.tpl', 
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>-->
+
